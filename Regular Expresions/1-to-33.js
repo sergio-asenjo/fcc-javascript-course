@@ -158,3 +158,108 @@ let result = quoteSample.match(nonAlphabetRegex).length;
 let movieName = "2001: A Space Odyssey";
 let numRegex = /\d/g;
 let result = movieName.match(numRegex).length;
+
+// ----------------------
+// Match All Non-Numbers
+// ----------------------
+
+let movieName = "2001: A Space Odyssey";
+let noNumRegex = /\D/g;
+let result = movieName.match(noNumRegex).length;
+
+// ----------------------
+// Restrict Possible Usernames
+// ----------------------
+
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/ig;
+let result = userCheck.test(username);
+
+// ----------------------
+// Match Whitespace
+// ----------------------
+
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g;
+let result = sample.match(countWhiteSpace);
+
+// ----------------------
+// Match Non-Whitespace Characters
+// ----------------------
+
+let sample = "Whitespace is important in separating words";
+let countNonWhiteSpace = /\S/g;
+let result = sample.match(countNonWhiteSpace);
+
+// ----------------------
+// Specify Upper and Lower Number of Matches
+// ----------------------
+
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6}\sno/g;
+let result = ohRegex.test(ohStr);
+
+// ----------------------
+// Specify Only the Lower Number of Matches
+// ----------------------
+
+let haStr = "Hazzzzah";
+let haRegex = /Haz{4,}ah/gi;
+let result = haRegex.test(haStr);
+
+// ----------------------
+// Specify Exact Number of Matches
+// ----------------------
+
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/g;
+let result = timRegex.test(timStr);
+
+// ----------------------
+// Check for All or None
+// ----------------------
+
+let favWord = "favorite";
+let favRegex = /favou?rite/;
+let result = favRegex.test(favWord);
+
+// ----------------------
+// Positive and Negative Lookahead
+// ----------------------
+
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{6,})(?=\w*\d{2})/;
+let result = pwRegex.test(sampleWord);
+
+// ----------------------
+// Check For Mixed Grouping of Characters
+// ----------------------
+
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Franklin|Eleanor).*Roosevelt/g;
+let result = myRegex.test(myString);
+
+// ----------------------
+// Reuse Patterns Using Capture Groups
+// ----------------------
+
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+) \1 \1$/;
+let result = reRegex.test(repeatNum);
+
+// ----------------------
+// Use Capture Groups to Search and Replace
+// ----------------------
+
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/;
+let replaceText = "$3 $2 $1";
+let result = str.replace(fixRegex, replaceText);
+
+// ----------------------
+// Remove Whitespace from Start and End
+// ----------------------
+
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g;
+let result = hello.replace(wsRegex, "");

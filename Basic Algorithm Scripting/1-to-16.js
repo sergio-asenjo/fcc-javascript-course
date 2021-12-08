@@ -107,3 +107,73 @@ function booWho(bool) {
   return typeof bool === 'boolean';
 }
 booWho(null);
+
+// ----------------------
+// Title Case a Sentence
+// ----------------------
+
+function titleCase(str) {
+  const lower = str.toLowerCase().split(' ');
+  return lower.map((val) => {
+    return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+  }).join(' ');
+}
+titleCase("I'm a little tea pot");
+
+// ----------------------
+// Slice and Splice
+// ----------------------
+
+function frankenSplice(arr1, arr2, n) {
+  let tmp = arr2.slice();
+  tmp.splice(n, 0, ...arr1);
+  return tmp;
+}
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+// ----------------------
+// Falsy Bouncer
+// ----------------------
+
+function bouncer(arr) {
+  return arr.filter(Boolean);
+}
+bouncer([7, "ate", "", false, 9]);
+
+// ----------------------
+// Where do I Belong
+// ----------------------
+
+function getIndexToIns(arr, num) {
+  return arr.filter(arrNum => num > arrNum).length;
+}
+getIndexToIns([40, 60], 50);
+
+// ----------------------
+// Where do I Belong
+// ----------------------
+
+function mutation(arr) {
+  const firstArr = arr[0].toLowerCase();
+  const secondArr = arr[1].toLowerCase();
+  for (let i = 0; i < secondArr.length; i++) {
+    if (firstArr.indexOf(secondArr[i]) < 0) {
+      return false;
+    }
+  }
+  return true;
+}
+mutation(["hello", "hey"]);
+
+// ----------------------
+// Chunky Monkey
+// ----------------------
+
+function chunkArrayInGroups(arr, size) {
+  let groups = [];
+  for (let i = 0; i < arr.length; i += size) {
+    groups.push(arr.slice(i, i + size));
+  }
+  return groups;
+}
+chunkArrayInGroups(["a", "b", "c", "d"], 2);

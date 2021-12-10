@@ -1,5 +1,5 @@
 // ----------------------
-// Convert Celsius to Fahrenheit
+// Create a Basic JavaScript Object
 // ----------------------
 
 let dog = {
